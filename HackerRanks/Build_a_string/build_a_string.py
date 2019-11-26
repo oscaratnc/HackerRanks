@@ -7,7 +7,6 @@ apd_1= 8
 cop_1= 9
 s_1= "bacbacacb"
 
-
 apd_2= 7890 
 cop_2= 7891 
 s_2= "acbcrsjcrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcrsjrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcsbcbcrsjh"
@@ -32,7 +31,6 @@ def find_substring(s, sub):
 
 def buildString(a, b, s):
     res = 0
-    
     substrings = get_substrings(s,a,b)
     res = find_substring(s[1:],substrings)
     return res
