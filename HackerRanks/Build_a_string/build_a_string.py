@@ -32,7 +32,8 @@ def find_substring(s, sub):
 def buildString(a, b, s):
     res = 0
     substrings = get_substrings(s,a,b)
-    res = find_substring(s[1:],substrings)
+    #res = find_substring(s[1:],substrings)
+    res = sorted(list(substrings))
     return res
 
  
