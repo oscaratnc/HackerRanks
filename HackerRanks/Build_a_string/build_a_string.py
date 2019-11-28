@@ -27,15 +27,37 @@ apd_5 = 2
 cop_5 = 4
 s_5 = 'cbabecbahe'
 
+    # 3
+
+    # 15 2 4
+
+    # baaceacmbaaceam
+
+    # 15 1 1
+
+    # acabsbccbgfeaca
+
+    # 15 2 4
+
+    # acabccadeljadel
+
+    # 22
+
+    # 13
+
+    # 26
 
 
-def get_substrings(s,subs_set):
+
+def get_substrings(s):
+    subs_set = set()
     n = len(s)
     for i in range(n): 
         for x in range(i+1,n+1): 
                 #subs.add(s[i:x])
                 subs_set.add(s[i:x])
-    return subs_set
+    subs_list = sorted(list(subs_set))
+    return subs_list
 
 def find_substring(s, subs_set):
     s_list = [s]
@@ -55,22 +77,26 @@ def buildString(a, b, s):
         i = 1
     else:
         i = 0
-    subs_set = set()
+
     while i < len(s)-1:
         sub_st = s[:i+1]
         rem_st = s[i+1:]
-        subs_set = subs_set.union(get_substrings(sub_st,subs_set))
-        tot = find_substring(rem_st, subs_set)
-        if tot != None:
-           tot = list(tot)[0]
-           i += len(tot)
-           res +=  b
-        else:
-            res += a
-            i += 1 
+        subs =  get_substrings(sub_st)
+        i += 1
+
+
+    #     # subs_set = subs_set.union(get_substrings(sub_st,subs_set))
+    #     # tot = find_substring(rem_st, subs_set)
+    #     # if tot != None:
+    #     #    tot = list(tot)[0]
+    #     #    i += len(tot)
+    #     #    res +=  b
+    #     # else:
+    #     #     res += a
+        #     i += 1 
     return res
 
  
 
 
-print(buildString(apd_3,cop_3,s_3))
+print(buildString(apd_0,cop_0,s_0))
