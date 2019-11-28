@@ -11,32 +11,64 @@ apd_2= 7890
 cop_2= 7891 
 s_2= "acbcrsjcrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcrsjrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcsbcbcrsjh"
 
-def get_substrings(s,a,b):
+    
+
+apd_3=2 
+cop_3 = 3
+s_3 = 'caaahqcqes'
+
+apd_4 = 1 
+cop_4 = 3
+s_4 = 'acbbqbbqbb'
+
+apd_5 = 2 
+cop_5 = 4
+s_5 = 'cbabecbahe'
+
+
+
+def get_substrings(s,subs_set):
     n = len(s)
-    subs = set()
     for i in range(n): 
         for x in range(i+1,n+1): 
-                subs.add(s[i:x])
-    return subs
+                #subs.add(s[i:x])
+                subs_set.add(s[i:x])
+    return subs_set
 
-def find_substring(s, sub):
-    s_list= []
-    s_list.append(s)
-    tail = set(s_list)
-    if len(tail &sub) > 0 :
-        return tail & sub
+def find_substring(s, subs_set):
+    s_list = [s]
+    ints = subs_set.intersection(set(s_list))
+    if len(s) == 0:
+        return 
+    elif len(ints) != 0:
+        return ints
     else:
-        return find_substring(s[:-1],sub)
-
-
+        return find_substring(s[:-1], subs_set)
+    
 def buildString(a, b, s):
-    res = 0
-    substrings = get_substrings(s,a,b)
-    #res = find_substring(s[1:],substrings)
-    res = sorted(list(substrings))
+    
+    res = a
+    if s[1] == s[0]:
+        res += a 
+        i = 1
+    else:
+        i = 0
+    subs_set = set()
+    while i < len(s)-1:
+        sub_st = s[:i+1]
+        rem_st = s[i+1:]
+        subs_set = subs_set.union(get_substrings(sub_st,subs_set))
+        tot = find_substring(rem_st, subs_set)
+        if tot != None:
+           tot = list(tot)[0]
+           i += len(tot)
+           res +=  b
+        else:
+            res += a
+            i += 1 
     return res
 
  
 
 
-print(buildString(apd_0,cop_0,s_0))
+print(buildString(apd_3,cop_3,s_3))
