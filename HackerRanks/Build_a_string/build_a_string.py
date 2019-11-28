@@ -12,15 +12,17 @@ cop_2= 7891
 s_2= "acbcrsjcrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcrsjrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcsbcbcrsjh"
 
     
-
-apd_3=2 
+#20
+apd_3= 2 
 cop_3 = 3
 s_3 = 'caaahqcqes'
 
+#10
 apd_4 = 1 
 cop_4 = 3
 s_4 = 'acbbqbbqbb'
 
+#18
 apd_5 = 2 
 cop_5 = 4
 s_5 = 'cbabecbahe'
