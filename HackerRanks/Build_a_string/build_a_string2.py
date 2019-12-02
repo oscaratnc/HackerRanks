@@ -1,35 +1,35 @@
 
-#26  B-A = 1 yep
+#26  B-A = 1 yep 9
 A_0= 4 
 B_0 = 5
 S_0 = "aabaacaba"
 
-#42 B-A = 1 yep
+#42 B-A = 1 yep 9
 A_1= 8 
 B_1= 9
 S_1= "bacbacacb"
 
-#20 B-A = 1 yep
+#20 B-A = 1 yep 10
 A_2= 2 
 B_2 = 3
 S_2 = 'caaahqcqes'
 
-#10 B-A = 2 Nop
+#10 B-A = 2 Nop 10
 A_3 = 1 
 B_3 = 3
 S_3 = 'acbbqbbqbb'
 
-#18 B-A = 2 yep 
+#18 B-A = 2 yep  10
 A_4 = 2 
 B_4 = 4
 S_4 = 'cbabecbahe'
 
-# 22 B-A = 2 yep
+# 22 B-A = 2 yep 15
 A_5 = 2 
 B_5 = 4
 S_5 = 'baaceacmbaaceam'
 
-# 13  B-A = 0  yep
+# 13  B-A = 0  yep 15
 A_6 = 1 
 B_6 = 1
 S_6 = 'acabsbccbgfeaca'
@@ -42,7 +42,7 @@ S_7 = 'acabccadeljadel'
 A_8 = 1 
 B_8 = 2
 S_8 = 'cbaasgcbiikaegcbiidcbaasgcbiikaegcbiidir'
-#24  31
+#24  31 
 A_9 = 1 
 B_9 = 3
 S_9 = 'cabcjpsdaedsasedsascabcjpsddsdaedsasedsa'
@@ -50,6 +50,20 @@ S_9 = 'cabcjpsdaedsasedsascabcjpsddsdaedsasedsa'
 A_10 = 2 
 B_10 = 3
 S_10 = 'cbacojcrojcrlidickjcjcrojcrlijcrojcrrojq'
+#29
+A_11 = 1 
+B_11 = 3
+S_11 = 'caacctinbnatinbnaqaacctinbnatinbnainbnatigaeifcaac'
+
+#50
+A_12 = 2 
+A_12 = 4
+S_12 = 'bbaakbbabaptakbbabaptafbbabbaakbbabapcqkmbbabaptak'
+
+#50
+A_13 = 2 
+B_13 = 2
+S_13 = 'cbbcnkbbcbnkbbcbtnkatnbebgcbnkbgbcnkbbcbnkmbndnknk'
 
 def lcs(S,T):
     m = len(S)
@@ -68,44 +82,38 @@ def lcs(S,T):
                     lcs_set.add(S[i-c+1:i+1])
                 elif c == longest:
                     lcs_set.add(S[i-c+1:i+1])
-    return lcs_set
+    return list(lcs_set)
     
-def find_substring(rem, subs):
-    subs = sorted(list(subs))
-  
-    if len(subs) == 1:
-        ref = max(subs,key = len)
-
-    for x in subs:
-        f_loc = rem.find(x)
-        if f_loc == 0:
-            return len(x)
-    return 0
-
 def buildString(a, b, s):
-    res = a
-    if s[1] == s[0]:
-        res += a 
-        i = 1
-    else:
-        i = 0
-    while i < len(s)-1:
-        sub_st = s[:i+1]
-        rem_st = s[i+1:]
-        # if len(sub_st) > len(rem_st):
-        #     cs = lcs(sub_st,rem_st)
-        # if len(sub_st) < len(rem_st):
-        #     cs = lcs(rem_st, sub_st)
-        cs = lcs(sub_st, rem_st)
-        fs = find_substring(rem_st, cs )
+    lim = b-a
+    res = 2*a
+    i = 2
+    for i in range(2, len(s)):
+        act = s[:i]
+        for j in range(i+1, len(s)):
+            sub = s[i:j]
+            if sub in act:
+                
 
-        if fs > 1:
-            res += b
-            i += fs
-        else:
-            res += a
-            i += 1
 
+
+
+    # while i < len(s):
+    #     rem = s[i:]
+    #     sub = s[:i]
+        # cs = lcs(sub, rem)
+        # if len(cs) == 0:
+        #     res += a
+        #     i += 1
+        #     continue
+        
+        # loc = rem.find(cs)
+        # if loc == 0 and len(cs) > lim:
+        #     res += b
+        #     i += len(cs)
+        # else:
+        #     res += a
+        #     i  += 1
     return res
 
  

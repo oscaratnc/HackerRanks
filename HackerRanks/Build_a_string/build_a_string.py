@@ -70,30 +70,14 @@ def find_substring(s, subs_set):
         return find_substring(s[:-1], subs_set)
     
 def buildString(a, b, s):
-    
     res = a
-    if s[1] == s[0]:
-        res += a 
-        i = 1
-    else:
-        i = 0
-
+    i = 1
     while i < len(s)-1:
         sub_st = s[:i+1]
         rem_st = s[i+1:]
-        subs =  get_substrings(sub_st)
+      
         i += 1
 
-
-    #     # subs_set = subs_set.union(get_substrings(sub_st,subs_set))
-    #     # tot = find_substring(rem_st, subs_set)
-    #     # if tot != None:
-    #     #    tot = list(tot)[0]
-    #     #    i += len(tot)
-    #     #    res +=  b
-    #     # else:
-    #     #     res += a
-        #     i += 1 
     return res
 
  
