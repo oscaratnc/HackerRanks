@@ -1,122 +1,147 @@
+testCases = {
+    0: {
+        "A" : 4,
+        "B" : 5,
+        "S" : "aabaacaba",
+        "R" : 26
+    },
+    1:{
+        "A" : 8, 
+        "B" : 9,
+        "S" :"bacbacacb",
+        "R" : 42
+    },
+    2:{
+        "A":2,
+        "B":3,
+        "S":'caaahqcqes',
+        "R" :20
+    },
+    3:{
+        "A" : 1, 
+        "B" : 3,
+        "S" : 'acbbqbbqbb',
+        "R" :10
+    },
+    4:{
+        "A" : 2, 
+        "B" : 4,
+        "S" : 'cbabecbahe',
+        "R" : 18
+    },
+    5:{
+        "A" : 2, 
+        "B" : 4,
+        "S" : 'baaceacmbaaceam',
+        "R" : 22
+    },
+    6:{
+        "A" : 1, 
+        "B" : 1,
+        "S" : 'acabsbccbgfeaca',
+        "R" : 13
+    },
+    7:{
+        "A" : 2, 
+        "B" : 4,
+        "S" : 'acabccadeljadel',
+        "R" : 26
+    },
+    8:{
+        "A" : 1, 
+        "B" : 2,
+        "S" : 'cbaasgcbiikaegcbiidcbaasgcbiikaegcbiidir',
+        "R":20
+    },
+    9:{
+        "A" : 1, 
+        "B" : 3,
+        "S" : 'cabcjpsdaedsasedsascabcjpsddsdaedsasedsa',
+        "R":24
+    },
+    10:{
+        "A" : 2, 
+        "B" : 3,
+        "S" : 'cbacojcrojcrlidickjcjcrojcrlijcrojcrrojq',
+        "R":45
+    },
+    11:{     
+        "A" : 1, 
+        "B" : 3,
+        "S" : 'caacctinbnatinbnaqaacctinbnatinbnainbnatigaeifcaac',
+        "R" : 29
+    },
+    12:{
+        "R" : 50,
+        "A" : 2,
+        "B" : 4,
+        "S" : 'bbaakbbabaptakbbabaptafbbabbaakbbabapcqkmbbabaptak'
+    },
+    13:{
+        "R" : 50,
+        "A" : 2, 
+        "B" : 2,
+        "S" : 'cbbcnkbbcbnkbbcbtnkatnbebgcbnkbgbcnkbbcbnkmbndnknk'
+    },
+    14:{
+        "R":65040,      
+        "A" : 2709,
+        "B" : 2712,
+        "S" : 'caackncaacknggikncaacknggaacknggikncaackggikncaacknggaacknggikncakqoaacknggikncacggihikncaomhikncaom'
+    },
+    15:{
+        "R":126246,
+        "A" : 7890,
+        "B" : 7891,
+        "S" : 'acbcrsjcrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcrsjrscrsjcrcbcrsjcrscrsjccbcrsjcrscrsjcrcbcsbcbcrsjh'
+    },
+    16: {
+        "R":268964,
+        "A" : 7078,
+        "B" : 7078,
+        "S" : 'abbciabbcabciabbcmabbciabbcahlbchgcmabbcmggcmababciabbcagerafrciabbcsrhgcmcabciabbchgcmabbcmsfabcmsr'
+    }
 
-#26  B-A = 1 yep 9
-A_0= 4 
-B_0 = 5
-S_0 = "aabaacaba"
-
-#42 B-A = 1 yep 9
-A_1= 8 
-B_1= 9
-S_1= "bacbacacb"
-
-#20 B-A = 1 yep 10
-A_2= 2 
-B_2 = 3
-S_2 = 'caaahqcqes'
-
-#10 B-A = 2 Nop 10
-A_3 = 1 
-B_3 = 3
-S_3 = 'acbbqbbqbb'
-
-#18 B-A = 2 yep  10
-A_4 = 2 
-B_4 = 4
-S_4 = 'cbabecbahe'
-
-# 22 B-A = 2 yep 15
-A_5 = 2 
-B_5 = 4
-S_5 = 'baaceacmbaaceam'
-
-# 13  B-A = 0  yep 15
-A_6 = 1 
-B_6 = 1
-S_6 = 'acabsbccbgfeaca'
-
-# 26 B - A= 2 yep
-A_7 = 2 
-B_7 = 4
-S_7 = 'acabccadeljadel'
-#20  23
-A_8 = 1 
-B_8 = 2
-S_8 = 'cbaasgcbiikaegcbiidcbaasgcbiikaegcbiidir'
-#24  31 
-A_9 = 1 
-B_9 = 3
-S_9 = 'cabcjpsdaedsasedsascabcjpsddsdaedsasedsa'
-#45  46
-A_10 = 2 
-B_10 = 3
-S_10 = 'cbacojcrojcrlidickjcjcrojcrlijcrojcrrojq'
-#29
-A_11 = 1 
-B_11 = 3
-S_11 = 'caacctinbnatinbnaqaacctinbnatinbnainbnatigaeifcaac'
-
-#50
-A_12 = 2 
-A_12 = 4
-S_12 = 'bbaakbbabaptakbbabaptafbbabbaakbbabapcqkmbbabaptak'
-
-#50
-A_13 = 2 
-B_13 = 2
-S_13 = 'cbbcnkbbcbnkbbcbtnkatnbebgcbnkbgbcnkbbcbnkmbndnknk'
-
-def lcs(S,T):
-    m = len(S)
-    n = len(T)
-    counter = [[0]*(n+1) for x in range(m+1)]
-    longest = 0
-    lcs_set = set()
-    for i in range(m):
-        for j in range(n):
-            if S[i] == T[j]:
-                c = counter[i][j] + 1
-                counter[i+1][j+1] = c
-                if c > longest:
-                    lcs_set = set()
-                    longest = c
-                    lcs_set.add(S[i-c+1:i+1])
-                elif c == longest:
-                    lcs_set.add(S[i-c+1:i+1])
-    return list(lcs_set)
-    
-def buildString(a, b, s):
-    lim = b-a
-    res = 2*a
-    i = 2
-    for i in range(2, len(s)):
-        act = s[:i]
-        for j in range(i+1, len(s)):
-            sub = s[i:j]
-            if sub in act:
-                
-
-
-
-
-    # while i < len(s):
-    #     rem = s[i:]
-    #     sub = s[:i]
-        # cs = lcs(sub, rem)
-        # if len(cs) == 0:
-        #     res += a
-        #     i += 1
-        #     continue
-        
-        # loc = rem.find(cs)
-        # if loc == 0 and len(cs) > lim:
-        #     res += b
-        #     i += len(cs)
-        # else:
-        #     res += a
-        #     i  += 1
-    return res
-
- 
+}
 
 
-print(buildString(A_0,B_0,S_0))
+
+
+
+
+
+
+'''
+   Divide el string en dos partes, sub parte izquierda
+   y un remanente, se va tomando como substring de izqierda a derecha, y se revisa 
+   el lado derecho hasta encontrar un string que se pueda formar del lado izquierdo 
+   (substrings disponibles),  y se almacenan en match con condiciones para el momento de 
+   no encontrar dicho substring y cortar el ciclo, se hace la cuantificacion de si el valor de 
+   a * len(match) es mayor que b, copias y mueves el apuntador i dependiendo de la longitud de match.
+   
+   Este jala para algunos casos pero me arroja una diferencia 
+   de 1 en algunos, apenas revisaré como puedo corregir eso o en 
+   que es lo que falla. 
+   '''
+def build_a_string(a,b,s):
+    cost = a
+    i = 1
+    match = ""
+    while i < len(s):
+        sub_st = s[:i]
+        for j in range(i+1,len(s)+1):
+            if s[i:j] not in s[:i]:
+                if j == len(s)+1:
+                    match = s[i:j]
+                else:
+                    match = s[i:j-1]
+                break
+            match = s[i:j]
+        if a*len(match) > b:
+            cost += b
+            i += len(match)
+        else:
+            cost += a
+            i += 1
+    return cost
+

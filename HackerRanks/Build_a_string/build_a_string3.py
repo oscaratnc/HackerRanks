@@ -104,33 +104,17 @@ testCases = {
 
 }
 
+'''
+Funciona para todos los casos, mientas el substring sub exista, es decir que contiene algun substring
+encontrado, si al agarrar un elemento este no se encuentra en el substring dependiente de i sale del 
+while y elimina ese elemento no repetido, dejando el string "vacio" , si  el string contiene elementos
+toma el valor minimo de costo, de sumarle a al anterior o b a un costo anterior dependiente de la longitud
+del substring encontrado y lo almacena en un arreglo de costos.
+'''
 
-
-def build_a_string(a,b,s):
-    cost = a
-    i = 1
-    match = ""
-    while i < len(s):
-        sub_st = s[:i]
-        for j in range(i+1,len(s)+1):
-            if s[i:j] not in s[:i]:
-                if j == len(s)+1:
-                    match = s[i:j]
-                else:
-                    match = s[i:j-1]
-                break
-            match = s[i:j]
-        if a*len(match) > b:
-            cost += b
-            i += len(match)
-        else:
-            cost += a
-            i += 1
-    return cost
-
-
-def build_a_string2(a,b,s):
+def buildString(a,b,s):
     cost = [0]*len(s)
+
     cost[0] = a
     sub = ""
     i = 1
@@ -144,15 +128,15 @@ def build_a_string2(a,b,s):
             cost[i] = min (cost[i-1]+a, cost[i-len(sub)]+b)
         else:
             cost[i] = cost[i-1]+a
-        i += 1        
+        i += 1 
+   
     return cost[-1]
 
 
 
 n = 15
 testcases = testCases[n]
-print(build_a_string(testcases['A'], testcases['B'], testcases['S']), testcases['R'])
+print(buildString(testcases['A'], testcases['B'], testcases['S']), testcases['R'])
 
-# print(build_a_string2(testcases['A'], testcases['B'], testcases['S']), testcases['R'])
 
 
